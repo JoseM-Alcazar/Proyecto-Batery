@@ -18,7 +18,7 @@ function handleKeyPress(key) {
   reproducir(instrumento);
 }
 
-let hihatOpen = true;
+let hihatOpen = false;
 
 //Esta función nos permite seleccionar el audio en función de la tecla pulsada.
 function soundSelect(tecla) {
@@ -66,9 +66,18 @@ window.addEventListener("keypress", (event) => {
   handleKeyPress(event);
 });
 
-// let check = document.getElementById("hihatOpen");
-// let checkbox = check.nodeType;
-// console.log(check);
+// Detección del checkbox
+document.addEventListener("DOMContentLoaded", (event) => {
+  const checkbox = document.getElementById("myCheckbox");
+
+  checkbox.addEventListener("change", (event) => {
+    if (event.target.checked) {
+      hihatOpen = true;
+    } else {
+      hihatOpen = false;
+    }
+  });
+});
 
 // function alternarHiHat() {
 //   if ((hihatOpen = true && tecla === " ")) {
