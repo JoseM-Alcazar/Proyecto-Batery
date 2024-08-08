@@ -4,8 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Batería</title>
-    <script src="script.js"></script>
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles.css"/>
   </head>
   <body>
     <header><h1>Batería</h1></header>
@@ -16,30 +15,42 @@
       <li>
         <button onClick="reproducir(soundSelect(`s`))">hihat</button>
       </li>
-
       <li>
         <button onClick="reproducir(soundSelect(`d`))">kick</button>
       </li>
       <li>
         <button onClick="reproducir(soundSelect(`f`))">ride</button>
       </li>
-      <li>
-        <button onClick="reproducir(soundSelect(`h`))">snare</button>
-      </li>
-      <li>
-        <button onClick="reproducir(soundSelect(`j`))">tom-high</button>
-      </li>
-      <li>
-        <button onClick="reproducir(soundSelect(`k`))">tom-mid</button>
-      </li>
-      <li>
-        <button onClick="reproducir(soundSelect(`l`))">tom-low</button>
-      </li>
+        <li>
+          <button onClick="reproducir(soundSelect(`h`))">snare</button>
+        </li>
+        <li>
+          <button onClick="reproducir(soundSelect(`j`))">tom-high</button>
+        </li>
+        <li>
+          <button onClick="reproducir(soundSelect(`k`))">tom-mid</button>
+        </li>
+        <li>
+          <button onClick="reproducir(soundSelect(`l`))">tom-low</button>
+        </li>
+    
     </menu>
-
-    <label for="myCheckbox">Pulsa para abrir/cerrar el hihat</label>
-    <input type="checkbox" id="myCheckbox" />
-
+    <article id="openClose">
+      <label for="myCheckbox">Pulsa para abrir/cerrar el hihat</label>
+      <input type="checkbox" id="myCheckbox" />
+    </article>
+    <article>
+      <ul>
+        <li>Pulsa "A" to crash</li>
+        <li>Pulsa "S" to hihat</li>
+        <li>Pulsa "D" to kick</li>
+        <li>Pulsa "F" to ride</li>
+        <li>Pulsa "H" to snare</li>
+        <li>Pulsa "J" to tom-high</li>
+        <li>Pulsa "K" to tom-mid</li>
+        <li>Pulsa "L" to tom-low</li>
+      </ul>
+    </article>
     <script src="script.js"></script>
   </body>
 </html>
