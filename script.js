@@ -67,16 +67,15 @@ window.addEventListener("keypress", (event) => {
 });
 
 // Detección del checkbox
-document.addEventListener("DOMContentLoaded", (event) => {
-  const checkbox = document.getElementById("myCheckbox");
 
-  checkbox.addEventListener("change", (event) => {
-    if (event.target.checked) {
-      hihatOpen = true;
-    } else {
-      hihatOpen = false;
-    }
-  });
+const checkbox = document.getElementById("myCheckbox");
+
+checkbox.addEventListener("change", (event) => {
+  if (event.target.checked) {
+    hihatOpen = true;
+  } else {
+    hihatOpen = false;
+  }
 });
 
 // function alternarHiHat() {
