@@ -56,7 +56,7 @@ button {
   width: 5rem;
   background-size: cover;
   background-color: red;
-  background-image: url(/assets/images/crash.jpg);
+  background-image: url(./assets/images/crash.jpg);
 }
 
 /*  

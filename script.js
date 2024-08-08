@@ -25,33 +25,33 @@ function soundSelect(tecla) {
   let sonido;
 
   if (tecla === "a") {
-    sonido = new Audio("/assets/sounds/crash.wav");
+    sonido = new Audio("./assets/sounds/crash.wav");
   }
   if (tecla === "s") {
     if (!hihatOpen) {
-      sonido = new Audio("/assets/sounds/hihat-close.wav");
+      sonido = new Audio("./assets/sounds/hihat-close.wav");
     }
     if (hihatOpen) {
-      sonido = new Audio("/assets/sounds/hihat-open.wav");
+      sonido = new Audio("./assets/sounds/hihat-open.wav");
     }
   }
   if (tecla === "d") {
-    sonido = new Audio("/assets/sounds/kick.wav");
+    sonido = new Audio("./assets/sounds/kick.wav");
   }
   if (tecla === "f") {
-    sonido = new Audio("/assets/sounds/ride.wav");
+    sonido = new Audio("./assets/sounds/ride.wav");
   }
   if (tecla === "h") {
-    sonido = new Audio("/assets/sounds/snare.wav");
+    sonido = new Audio("./assets/sounds/snare.wav");
   }
   if (tecla === "j") {
-    sonido = new Audio("/assets/sounds/tom-high.wav");
+    sonido = new Audio("./assets/sounds/tom-high.wav");
   }
   if (tecla === "k") {
-    sonido = new Audio("/assets/sounds/tom-low.wav");
+    sonido = new Audio("./assets/sounds/tom-low.wav");
   }
   if (tecla === "l") {
-    sonido = new Audio("/assets/sounds/tom-mid.wav");
+    sonido = new Audio("./assets/sounds/tom-mid.wav");
   }
   return sonido;
 }
