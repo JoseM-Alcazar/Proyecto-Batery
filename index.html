@@ -4,36 +4,41 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Batería</title>
-    <link rel="stylesheet" href="styles.css"/>
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <header><h1>Batería</h1></header>
     <menu>
       <li>
-        <button onClick="reproducir(soundSelect(`a`))">crash</button>
+        <button
+          class="btn"
+          id="btnCrash"
+          onClick="reproducir(soundSelect(`a`))"
+        ></button>
       </li>
       <li>
-        <button onClick="reproducir(soundSelect(`s`))">hihat</button>
+        <button class="btn" onClick="reproducir(soundSelect(`s`))">
+          hihat
+        </button>
       </li>
       <li>
-        <button onClick="reproducir(soundSelect(`d`))">kick</button>
+        <button class="btn" onClick="reproducir(soundSelect(`d`))">kick</button>
       </li>
       <li>
-        <button onClick="reproducir(soundSelect(`f`))">ride</button>
+        <button class="btn" onClick="reproducir(soundSelect(`f`))">ride</button>
       </li>
-        <li>
-          <button onClick="reproducir(soundSelect(`h`))">snare</button>
-        </li>
-        <li>
-          <button onClick="reproducir(soundSelect(`j`))">tom-high</button>
-        </li>
-        <li>
-          <button onClick="reproducir(soundSelect(`k`))">tom-mid</button>
-        </li>
-        <li>
-          <button onClick="reproducir(soundSelect(`l`))">tom-low</button>
-        </li>
-    
+      <li>
+        <button onClick="reproducir(soundSelect(`h`))">snare</button>
+      </li>
+      <li>
+        <button onClick="reproducir(soundSelect(`j`))">tom-high</button>
+      </li>
+      <li>
+        <button onClick="reproducir(soundSelect(`k`))">tom-mid</button>
+      </li>
+      <li>
+        <button onClick="reproducir(soundSelect(`l`))">tom-low</button>
+      </li>
     </menu>
     <article id="openClose">
       <label for="myCheckbox">Pulsa para abrir/cerrar el hihat</label>
@@ -51,6 +56,10 @@
         <li>Pulsa "L" to tom-low</li>
       </ul>
     </article>
+
+    <button id="recordButton">Grabar</button>
+    <button id="playButton" disabled>Reproducir</button>
+
     <script src="script.js"></script>
   </body>
 </html>

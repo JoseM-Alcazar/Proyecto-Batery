@@ -1,30 +1,31 @@
 * {
   padding: 0;
-  margin: 0; 
+  margin: 0;
   box-sizing: border-box;
+  background-color: black;
 }
 
 html {
-  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-family: Georgia, "Times New Roman", Times, serif;
 }
 body {
   font-size: 14px;
   background-color: black;
-  color: lime
+  color: lime;
 }
 
 menu li {
   text-decoration: none;
   list-style: none;
   color: ;
-  padding:;
+  padding: ;
 }
 
 ul li {
   text-decoration: none;
   list-style: none;
   color: ;
-  padding:;
+  padding: ;
 }
 
 h1 {
@@ -39,7 +40,6 @@ menu {
   grid-template-rows: repeat(2, 1fr);
   justify-content: center;
   justify-items: center;
-
 }
 
 menu li {
