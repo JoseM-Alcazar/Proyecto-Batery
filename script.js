@@ -12,6 +12,7 @@
 //Esta función indicara que tecla ha sido pulsada y enviará las llamadas correspondientes para reproducir el audio.
 function handleKeyPress(key) {
   let teclaPulsada = key.key;
+
   // console.log("La tecla", teclaPulsada, "ha sido pulsada");
 
   let instrumento = soundSelect(teclaPulsada);
@@ -78,26 +79,116 @@ checkbox.addEventListener("change", (event) => {
   }
 });
 
-// function alternarHiHat() {
-//   if ((hihatOpen = true && tecla === " ")) {
-//     hihatOpen = false;
-//   }
-//   if ((hihatOpen = false && tecla === " ")) {
-//     hihatOpen = true;
-//   }
-//   console.log(hihatOpen);
-//   return hihatOpen;
-// }
+///////////////////////////
+//AQUÍ COMIENZA EL AUDIO DEL GRABADOR Y REPRODUCTOR DE AUDIO
 
-//Lo comentado abajo es un intento fallido de detectar el boton pulsado, en su lugar he añadido en el html eventos de onclick en cada boton que llaman a las funciones dandoles un parametro distinto a cada uno.
+// Variables a usar:
+//
+let datosTeclas = [];
+let ultimaPulsacion = null;
+let reproducirTecla;
+//Booleanos de grabación y reproducción
+let grabar = false;
+let reproduciendo = false;
 
-// //Intento de detectar la pulsación de un boton
-// const nombreBoton = document.getElementById("test");
-// const btn = document.querySelector("button");
+// Función para alternar el valor del booleano "grabar"
+function toggleGrabar() {
+  grabar = !grabar; // Cambia el valor de true a false o viceversa
 
-// btn.addEventListener("click", (event) => {
-//   console.log("Botón pulsado");
-//   //////////
-//   // Presuntamente una vez que el consolelog funcione adecuadamente, al quitar el comentario debería sonar un sonido.
-//   //   reproducir(soundSelect("a"));
-// });
+  //Si está grabando, el botón grabar cambiará su texto a detener y se deshabilita el botón reproducir
+  if (grabar) {
+    recordButton.textContent = "Detener";
+    playButton.disabled = true;
+  }
+  //Si NO está grabando, el botón detener cambiará su texto a grabar y se habilita el botón reproducir
+  if (!grabar) {
+    recordButton.textContent = "Grabar";
+    playButton.disabled = false;
+  }
+}
+
+//Desactiva o activa los botonoes reproducir y grabar para evitar problemas
+//Funciona igual que la función anterior, salvo que esta detiene ambos botones
+function toggleReproduciendo() {
+  reproduciendo = !reproduciendo;
+
+  if (reproduciendo) {
+    playButton.textContent = "Reproduciendo";
+    playButton.disabled = true;
+    recordButton.disabled = true;
+  }
+  if (!reproduciendo) {
+    playButton.textContent = "Reproducir";
+    playButton.disabled = false;
+    recordButton.disabled = false;
+  }
+}
+
+// Asociamos la función al evento de clic del botón grabar y reseteamos el array
+document.getElementById("recordButton").addEventListener("click", () => {
+  toggleGrabar();
+  if (grabar) {
+    datosTeclas = [];
+  }
+});
+
+// Evento de teclado para capturar teclas y tiempos
+document.addEventListener("keydown", (event) => {
+  //Función que nos crea un array de objetos con los valores tecla y tiempo.
+  if (grabar) {
+    const tecla = event.key;
+    const tiempoActual = new Date().getTime();
+
+    // Si es la primera pulsación, no calculamos el tiempo transcurrido
+    if (ultimaPulsacion !== null) {
+      const tiempoTranscurrido = tiempoActual - ultimaPulsacion;
+      datosTeclas.push({
+        tecla: tecla,
+        tiempo: tiempoTranscurrido,
+      });
+    } else {
+      datosTeclas.push({
+        tecla: tecla,
+        tiempo: 0, // Primer tecla presionada
+      });
+    }
+
+    // Actualizamos el tiempo de la última pulsación
+    ultimaPulsacion = tiempoActual;
+  }
+});
+
+// Evento del botón para guardar los datos
+document.getElementById("playButton").addEventListener("click", () => {
+  console.log("Datos guardados:", datosTeclas);
+
+  toggleReproduciendo();
+  // Reproducimos el audio pasandole dos parametros a las funciones, el primero será el valor "tecla" y el segundo será el array "tiempo" del objeto que corresponda
+  if (reproduciendo) {
+    reproducirGrabacion(datosTeclas);
+  }
+  const espera = datosTeclas.reduce(
+    (acc, datosTeclas) => acc + datosTeclas.tiempo,
+    0
+  );
+  setTimeout(() => toggleReproduciendo(), espera);
+});
+
+async function reproducirGrabacion(data) {
+  for (let i = 0; i < data.length; i++) {
+    let tempo = data[i].tiempo;
+    const promesa = await new Promise((resolve, reject) => {
+      setTimeout(function () {
+        resolve("hola");
+      }, tempo);
+    });
+
+    reproducirTecla = data[i].tecla;
+
+    let instrumento = soundSelect(reproducirTecla);
+    reproducir(instrumento);
+  }
+}
+
+//  Nota:
+//  No he conseguido hacerlo funcionar con los botones, así que el grabador solo funciona con teclas.
