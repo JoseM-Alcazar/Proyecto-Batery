@@ -17,15 +17,15 @@ body {
 menu li {
   text-decoration: none;
   list-style: none;
-  color: black;
-  padding: ;
+  color: rgb(0, 0, 0);
+  padding: auto;
 }
 
 ul li {
   text-decoration: none;
   list-style: none;
-  color: ;
-  padding: ;
+  color: black;
+  padding: auto;
 }
 
 h1 {
