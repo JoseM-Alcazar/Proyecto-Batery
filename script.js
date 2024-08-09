@@ -87,6 +87,7 @@ checkbox.addEventListener("change", (event) => {
 let datosTeclas = [];
 let ultimaPulsacion = null;
 let reproducirTecla;
+let espera;
 //Booleanos de grabación y reproducción
 let grabar = false;
 let reproduciendo = false;
@@ -105,6 +106,7 @@ function toggleGrabar() {
     recordButton.textContent = "Grabar";
     playButton.disabled = false;
   }
+  ultimaPulsacion = null;
 }
 
 //Desactiva o activa los botonoes reproducir y grabar para evitar problemas
@@ -130,6 +132,7 @@ document.getElementById("recordButton").addEventListener("click", () => {
   if (grabar) {
     datosTeclas = [];
   }
+  espera = 0;
 });
 
 // Evento de teclado para capturar teclas y tiempos
@@ -167,10 +170,12 @@ document.getElementById("playButton").addEventListener("click", () => {
   if (reproduciendo) {
     reproducirGrabacion(datosTeclas);
   }
-  const espera = datosTeclas.reduce(
+
+  espera = datosTeclas.reduce(
     (acc, datosTeclas) => acc + datosTeclas.tiempo,
     0
   );
+
   setTimeout(() => toggleReproduciendo(), espera);
 });
 
