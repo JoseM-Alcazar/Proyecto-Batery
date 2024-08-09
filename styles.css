@@ -58,45 +58,36 @@ button {
   background-color: red;
   background-image: url(./assets/images/crash.jpg);
 }
+#kick {
+  background-image: url(./assets/images/kick.jpeg);
+}
+
+#ride { background-image: url(./assets/images/ride.jpeg);
+}
+
+#crash {background-image: url(./assets/images/crash.jpg); }
+
+#snare {
+  background-image: url(./assets/images/snare.jpg);
+}
+
+#tom-high {
+  background-image: url(./assets/images/tom-high.jpeg)
+}
+
+#tom-mid {
+  background-image: url(./assets/images/tom-mid.jpg);
+}
+
+#tom-low {
+  background-image: url(./assets/images/tom-low.jpg);
+}
+
 
 /*  
-#crash {
-  height: 3rem;
-  width: 20px;
-}
 
 #hihat {
   height: 20px;
   width: 20x;
 }
-
-#kick {
-  height: 20px;
-  width: 20px;
-}
-
-#ride {
-  height: 20px;
-  width: 20px;
-}
-
-#snare {
-  height: 20px;
-  width: 20px;
-}
-
-#tomHigh {
-  height: 20px;
-  width: 20px;
-}
-
-#tomMid {
-  height: 20px;
-  width: 20px;
-}
-
-#tomLow {
-  height: 20px;
-  width: 20px;
-}
-  */
+  */ 
