@@ -197,3 +197,17 @@ async function reproducirGrabacion(data) {
 
 //  Nota:
 //  No he conseguido hacerlo funcionar con los botones, así que el grabador solo funciona con teclas.
+// Obtén referencias a los elementos del DOM
+let checkboxhihat = document.getElementById('myCheckbox');
+const hihatButton = document.getElementById('hihat');
+
+// Evento que se activa cuando cambia el estado del checkbox
+checkboxhihat.addEventListener('change', () => {
+  if (checkboxhihat.checked) {
+    // Si el checkbox está marcado, cambia la imagen de fondo del botón
+    hihatButton.style.backgroundImage = 'url("./assets/images/hihat-close.jpeg")';
+  } else {
+    // Si el checkbox no está marcado, restaura la imagen de fondo original
+    hihatButton.style.backgroundImage = 'url("./assets/images/hihat-open.jpg")';
+  }
+});
