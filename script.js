@@ -98,13 +98,13 @@ function toggleGrabar() {
 
   //Si está grabando, el botón grabar cambiará su texto a detener y se deshabilita el botón reproducir
   if (grabar) {
-    recordButton.textContent = "Detener";
     playButton.disabled = true;
+    recordButton.style.backgroundImage = "url('./assets/images/stop.png')";
   }
   //Si NO está grabando, el botón detener cambiará su texto a grabar y se habilita el botón reproducir
   if (!grabar) {
-    recordButton.textContent = "Grabar";
     playButton.disabled = false;
+    recordButton.style.backgroundImage = "url('./assets/images/record.png')";
   }
   ultimaPulsacion = null;
 }
@@ -115,13 +115,13 @@ function toggleReproduciendo() {
   reproduciendo = !reproduciendo;
 
   if (reproduciendo) {
-    playButton.textContent = "Reproduciendo";
     playButton.disabled = true;
+    playButton.style.backgroundImage = "url('./assets/images/pause.png')";
     recordButton.disabled = true;
   }
   if (!reproduciendo) {
-    playButton.textContent = "Reproducir";
     playButton.disabled = false;
+    playButton.style.backgroundImage = "url('./assets/images/play.png')";
     recordButton.disabled = false;
   }
 }
@@ -198,16 +198,17 @@ async function reproducirGrabacion(data) {
 //  Nota:
 //  No he conseguido hacerlo funcionar con los botones, así que el grabador solo funciona con teclas.
 // Obtén referencias a los elementos del DOM
-let checkboxhihat = document.getElementById('myCheckbox');
-const hihatButton = document.getElementById('hihat');
+let checkboxhihat = document.getElementById("myCheckbox");
+const hihatButton = document.getElementById("hihat");
 
 // Evento que se activa cuando cambia el estado del checkbox
-checkboxhihat.addEventListener('change', () => {
+checkboxhihat.addEventListener("change", () => {
   if (checkboxhihat.checked) {
     // Si el checkbox está marcado, cambia la imagen de fondo del botón
-    hihatButton.style.backgroundImage = 'url("./assets/images/hihat-close.jpeg")';
+    hihatButton.style.backgroundImage = 'url("./assets/images/hihat-open.png")';
   } else {
     // Si el checkbox no está marcado, restaura la imagen de fondo original
-    hihatButton.style.backgroundImage = 'url("./assets/images/hihat-open.jpg")';
+    hihatButton.style.backgroundImage =
+      'url("./assets/images/hihat-close.png")';
   }
 });

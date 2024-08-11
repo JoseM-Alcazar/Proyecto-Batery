@@ -9,40 +9,65 @@
   <body>
     <header>
       <h1>
-        <strong>Batería</strong>
+        <strong>BATERÍA</strong>
       </h1>
     </header>
     <menu>
       <li>
         <button
           class="btn"
-          id="btnCrash"
+          id="crash"
           onClick="reproducir(soundSelect(`a`))"
         ></button>
       </li>
       <li>
-        <button id="hihat"   class="btn" onClick="reproducir(soundSelect(`s`))">
-          hihat
-          
-        </button>
+        <button
+          id="hihat"
+          class="btn"
+          onClick="reproducir(soundSelect(`s`))"
+        ></button>
       </li>
       <li>
-        <button  id="kick" class="btn" onClick="reproducir(soundSelect(`d`))">kick</button>
+        <button
+          id="kick"
+          class="btn"
+          onClick="reproducir(soundSelect(`d`))"
+        ></button>
       </li>
       <li>
-        <button id="ride" class="btn" onClick="reproducir(soundSelect(`f`))">ride</button>
+        <button
+          id="ride"
+          class="btn"
+          onClick="reproducir(soundSelect(`f`))"
+        ></button>
       </li>
       <li>
-        <button id="snare" class="btn" onClick="reproducir(soundSelect(`h`))">snare</button>
+        <button
+          id="snare"
+          class="btn"
+          onClick="reproducir(soundSelect(`h`))"
+        ></button>
       </li>
       <li>
-        <button id="tom-high" class="btn" onClick="reproducir(soundSelect(`j`))">tom-high</button>
+        <button
+          id="tom-high"
+          class="btn"
+          onClick="reproducir(soundSelect(`j`))"
+        ></button>
       </li>
       <li>
-        <button id="tom-mid" class="btn" onClick="reproducir(soundSelect(`k`))">tom-mid</button>
+        <button
+          id="tom-mid"
+          class="btn"
+          onClick="reproducir(soundSelect(`k`))"
+        ></button>
       </li>
       <li>
-        <button id="tom-low" class="btn" onClick="reproducir(soundSelect(`l`))">tom-low</button>
+        <button
+          id="tom-low"
+          class="btn"
+          onClick="reproducir(soundSelect(`l`))"
+        ></button>
       </li>
     </menu>
     <article id="openClose">
@@ -50,6 +75,8 @@
       <input type="checkbox" id="myCheckbox" />
     </article>
     <article>
+      <p></p>
+      <h2>Controles:</h2>
       <ul>
         <li>Pulsa "A" to crash</li>
         <li>Pulsa "S" to hihat</li>
@@ -61,10 +88,14 @@
         <li>Pulsa "L" to tom-low</li>
       </ul>
     </article>
-
-    <button id="recordButton">Grabar</button>
-    <button id="playButton" disabled>Reproducir</button>
-
+    <article>
+      <button id="recordButton"></button>
+      <button id="playButton" disabled></button>
+      <p>
+        Nota: La grabación no funcionará haciendo click, deberá usarse el
+        teclado.
+      </p>
+    </article>
     <script src="script.js"></script>
   </body>
 </html>
